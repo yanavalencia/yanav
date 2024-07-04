@@ -29,7 +29,7 @@ class _DashboardState extends State<Dashboard> {
             children: [
               Center(
                 child: Image.asset(
-                  'assets/chawapp.jfif',
+                  'assets/img.png',
                   width: 260,
                 ),
               ),

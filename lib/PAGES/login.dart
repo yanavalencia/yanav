@@ -13,6 +13,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
@@ -83,6 +84,7 @@ class _LoginState extends State<Login> {
                           formKey.currentState!.save();
                           print(email);
                           print(password);
+                          Navigator.pushReplacementNamed(context, '/');
                           // Implement your login logic here
                         }
                       },
