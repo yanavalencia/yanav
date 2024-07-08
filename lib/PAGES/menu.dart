@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:untitled2/PAGES/selectedProduct.dart';
 import 'package:untitled2/Services/product.dart';
 import 'package:untitled2/Services/menuCard.dart';
 import 'package:http/http.dart' as http;
@@ -88,6 +89,7 @@ class _MenuState extends State<Menu> {
          }
          if (snapshot.hasData){
     List products =snapshot.data!;
+    print(products);
     return Padding(
     padding: EdgeInsets.all(3.0),
     child: ListView.builder(
@@ -102,6 +104,14 @@ class _MenuState extends State<Menu> {
     Text(products[index].price.toString())
     ],
     ),
+      onTap: (){
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context)=> selectedProduct(product: products[index]),
+        )
+      );
+      }
     ),
     );
     }

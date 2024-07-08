@@ -21,7 +21,7 @@ class _DashboardState extends State<Dashboard> {
         ),
         centerTitle: true,
       ),
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.grey,
       body: Container(
         child: SafeArea(
           child: Column(
