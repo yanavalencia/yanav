@@ -15,6 +15,8 @@ class _signupState extends State<Signup> {
   String username = '';
   String email = '';
   String password = '';
+  bool _obscure = true;
+IconData _obscureIcon =Icons.visibility_off;
 createAccoount(User user) async{
   final response =await http.post(
     Uri.parse('http://10.0.2.2:8080/api/v1/auth/register/user'),
@@ -57,6 +59,7 @@ createAccoount(User user) async{
                       maxLength: 40,
                       decoration: InputDecoration(
                           label: Text('Name'),
+                          prefixIcon: Icon(Icons.person),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20.0))),
                       validator: (value) {
@@ -79,6 +82,7 @@ createAccoount(User user) async{
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                             label: Text('email'),
+                            prefixIcon: Icon(Icons.email),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20.0))),
                         validator: (value) {
@@ -94,9 +98,21 @@ createAccoount(User user) async{
                       height: 30.0,
                     ),
                     TextFormField(
-                        obscureText: true,
+                        obscureText: _obscure,
                         decoration: InputDecoration(
                             label: Text('password'),
+                            prefixIcon: Icon(Icons.lock_rounded),
+                            suffixIcon: IconButton(
+                              icon: Icon(_obscureIcon),
+                              onPressed: (){
+                                setState(() {
+                                  _obscure = !_obscure;
+                                  if(_obscure){
+                                    _obscureIcon =Icons.visibility_off;
+                                  }
+                                });
+                              },
+                            ),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20.0))),
                         validator: (value) {
