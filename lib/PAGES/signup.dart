@@ -12,7 +12,7 @@ class Signup extends StatefulWidget {
 
 class _signupState extends State<Signup> {
   final formKey = GlobalKey<FormState>();
-  String name = '';
+  String username = '';
   String email = '';
   String password = '';
 createAccoount(User user) async{
@@ -27,6 +27,7 @@ createAccoount(User user) async{
       'password': user.password,
       }),
   );
+  print(user.email);
   print(response.body);
 }
   @override
@@ -68,7 +69,7 @@ createAccoount(User user) async{
                         return null;
                       },
                       onSaved: (value) {
-                        name = value!;
+                        username = value!;
                       },
                     ),
                     SizedBox(
@@ -87,7 +88,7 @@ createAccoount(User user) async{
                           return null;
                         },
                         onSaved: (value) {
-                          name = value!;
+                          email = value!;
                         }),
                     SizedBox(
                       height: 30.0,
@@ -111,7 +112,7 @@ createAccoount(User user) async{
                           return null;
                         },
                         onSaved: (value) {
-                          name = value!;
+                          password = value!;
                         }),
                     SizedBox(
                       height: 25.0,
@@ -121,12 +122,12 @@ createAccoount(User user) async{
                         if (formKey.currentState!.validate()) {
                           formKey.currentState!.save();
                           User user = User(
-                            username: name,
+                            username: username,
                             email: email,
                             password: password
                           );
                           createAccoount(user);
-                          print(name);
+                          print(username);
                           print(email);
                           print(password);
                         }
