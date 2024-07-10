@@ -21,7 +21,7 @@ class _MenuState extends State<Menu> {
 
   late Future<List<dynamic>> product;
  Future<List<dynamic>> fetchData() async{
-    final response = await http.get(Uri.parse('http://10.0.2.2:8080/products'));
+    final response = await http.get(Uri.parse('http://10.0.2.2:8080/api/v1/product/all'));
     final data = jsonDecode(response.body);
     print(data);
     List products =<Product>[];

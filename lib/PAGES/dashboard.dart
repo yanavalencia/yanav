@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
+
   @override
   State<Dashboard> createState() => _DashboardState();
 }
@@ -10,102 +11,58 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.red,
-        title: Text(
-          'DASHBOARD',
-          style: TextStyle(
-            letterSpacing: 2.0,
-            fontWeight: FontWeight.bold,
+        resizeToAvoidBottomInset: false,
+        bottomNavigationBar: BottomNavigationBar(
+          elevation: 3.0,
+          onTap: (int val){
+            switch(val){
+              case 0:
+                Navigator.pushNamed(context, '/menu');
+                break;
+              case 1:
+                Navigator.pushNamed(context, '/profile');
+                break;
+            }
+          },
+          currentIndex: 0,
+          items: const[
+            BottomNavigationBarItem(
+                icon: Icon(Icons.fastfood),
+                label: 'Menu'
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Profile'
+            ),
+          ],
+        ),
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          title: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Image.asset(
+              'assets/pirata.png',
+              height: 60.0,
+              width: 500.0,
+            ),
           ),
         ),
-        centerTitle: true,
-      ),
-      backgroundColor: Colors.grey,
-      body: Container(
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                child: Image.asset(
-                  'assets/img.png',
-                  width: 260,
-                ),
-              ),
-              SizedBox(height: 55.0),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/menu');
-                },
-                child: Text(
-                  'Menu',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+        backgroundColor: Colors.red[300],
+        body: Container(
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Image.asset(
+                    'assets/chawpanan.png',
+                    width: 360,
                   ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.pink[200],
-                  backgroundColor: Colors.pinkAccent,
-                ),
-              ),
-              SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/profile');
-                },
-                child: Text(
-                  'Profile',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.pink[50],
-                  backgroundColor: Colors.pinkAccent,
-                ),
-              ),
-              SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/signup');
-                },
-                child: Text(
-                  'Sign-up',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.pink[50],
-                  backgroundColor: Colors.pinkAccent,
-                ),
-              ),
-              SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/login');
-                },
-                child: Text(
-                  'Login',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.pink[50],
-                  backgroundColor: Colors.pinkAccent,
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ),
+        )
     );
   }
 }
-
