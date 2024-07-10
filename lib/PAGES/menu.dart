@@ -65,7 +65,7 @@ class _MenuState extends State<Menu> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pinkAccent,
-        foregroundColor: Colors.blueGrey,
+        foregroundColor: Colors.white,
         title: Text(
           'Menu',
               style: TextStyle(
@@ -74,6 +74,7 @@ class _MenuState extends State<Menu> {
         ),
         ),
       ),
+   backgroundColor: Colors.black,
    body: Padding(
      padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
      child: FutureBuilder(

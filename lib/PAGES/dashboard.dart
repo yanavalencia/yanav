@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -37,7 +38,7 @@ class _DashboardState extends State<Dashboard> {
           ],
         ),
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.blueGrey,
           title: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Image.asset(
@@ -47,17 +48,44 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
         ),
-        backgroundColor: Colors.red[300],
+        backgroundColor: Colors.red[400],
         body: Container(
           child: SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  child: Image.asset(
-                    'assets/chawpanan.png',
-                    width: 360,
+                FlutterCarousel(
+                  options: CarouselOptions(
+                    height: 400.0,
+                    showIndicator: true,
+                    slideIndicator: CircularSlideIndicator(),
                   ),
+                  items: [
+                    'assets/dos.jpg',
+                    'assets/uno.jpg',
+                    'assets/chawsisig.jpg',
+                    'assets/chawtapa.jpg',
+                  ].map((String imagePath) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.symmetric(horizontal: 5.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white24,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image.asset(
+                              imagePath,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  }).toList(),
                 ),
               ],
             ),
