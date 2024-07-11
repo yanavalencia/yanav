@@ -18,6 +18,14 @@ class _HomeState extends State<Home> {
         title: Text ('User Profile'),
         backgroundColor: Colors.pinkAccent,
         centerTitle: true,
+          actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: (){
+              Navigator.pushReplacementNamed(context, '/login');
+            },
+          ),
+          ]
       ),
       body: Padding(
         padding: EdgeInsets.all(20.0),
