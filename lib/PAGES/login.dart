@@ -46,7 +46,7 @@ class _LoginState extends State<Login> {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/front.jpg'),
+                image: AssetImage('assets/yana.png'),
                 fit: BoxFit.cover
             ),
           ),
@@ -54,8 +54,9 @@ class _LoginState extends State<Login> {
             padding: EdgeInsets.fromLTRB(15.0, 50.0, 10.0, 0),
             child: Column(
               children: <Widget>[
+                SizedBox(height: 130.0),
                 Text(
-                  'CHAWAPP!',
+                  ' LOGIN',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     letterSpacing: 2.0,

@@ -38,7 +38,7 @@ class _DashboardState extends State<Dashboard> {
           ],
         ),
         appBar: AppBar(
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Colors.grey,
           title: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Image.asset(
@@ -53,7 +53,7 @@ class _DashboardState extends State<Dashboard> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/dashboard.jpg'),
+                  image: AssetImage('assets/soon.png'),
                   fit: BoxFit.cover
               ),
             ),

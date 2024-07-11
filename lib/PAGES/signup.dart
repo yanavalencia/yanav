@@ -39,13 +39,14 @@ createAccoount(User user) async{
         body: SafeArea(
           child: Container(decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/front.jpg'),
+                image: AssetImage('assets/yana.png'),
                 fit: BoxFit.cover
             ),
           ),
             child: Padding(
               padding: EdgeInsets.fromLTRB(15.0, 50.0, 10.0, 0),
               child: Column(children: <Widget>[
+                SizedBox(height: 130.0),
                 Text(
                   'Lets Get Started!',
                   style: TextStyle(
